@@ -57,6 +57,7 @@ params = {
 }
 if not os.path.exists("video"):
     os.makedirs("video")
+
 '''获取文件的大小,结果保留两位小数，单位为MB'''
 def get_FileSize(filePath):
     # filePath = unicode(filePath,'utf8')
@@ -64,6 +65,20 @@ def get_FileSize(filePath):
     fsize = fsize/float(1024*1024)
     return round(fsize,2)
 
+
+def get_dytk():
+    responce =  requests.get(uri, headers=headers,timeout = 5)
+    data =responce.text
+    dytkstart = data.find("dytk:")
+    dytkend = data.find("\n", dytkstart)
+    dytk = data[dytkstart:dytkend]
+    # print("dytk=",dytk)
+    dytks = dytk.split(":")
+    print ("dytk===",dytks[1])
+    params["dytk"] = dytks[1]
+    
+
+    
 def getsign():
     try:
 
@@ -211,7 +226,8 @@ def getLike(max_cursor,sign):
     else:
         getLike(Data["max_cursor"],None)
         return
-
+# '''
+get_dytk()
 if len(sys.argv)==1:
     print("input douyin id")
 else:
@@ -239,7 +255,7 @@ else:
             with open(path,"r") as f:
                 start = f.read()
         getLike(start,None)
-
+# '''
     
 
 
