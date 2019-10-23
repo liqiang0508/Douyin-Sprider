@@ -15,3 +15,7 @@ https://www.iesdouyin.com/share/video/6651517415924485380/?region=CN&mid=6638857
 run.py  uid 1 为爬这个用户发布的作品
 
 run.py  uid 2为爬这个用户喜欢的作品
+
+
+
+需要自己配置好selenium的google浏览器driver
