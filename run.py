@@ -92,7 +92,7 @@ def getsign():
         f.write(tac)
         f.close()
         responce.close()
-        drive.get("file:///E:/github/PythonStudy/douyin/get_sign.html")
+        drive.get("file:///get_sign.html")
         sign = drive.find_element_by_xpath("/html/body").text
         return sign
     except Exception as e:
